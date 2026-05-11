@@ -31,7 +31,7 @@ agent any
 
  post {
    success {
-       echo "Successful"
+       currentBuild.description = "Open SauceDemo: https://www.saucedemo.com"
    }
   failure {
       echo "Failed"
