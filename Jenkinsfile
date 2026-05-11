@@ -26,25 +26,27 @@ pipeline {
             }
         }
 
-        stage('Run Application') {
+        stage('Run Selenium') {
             steps {
                 sh 'mvn exec:java'
             }
         }
-        stage('Open SauceDemo') {
-    steps {
-        bat 'start https://www.saucedemo.com'   
-    }
-}
     }
 
     post {
         success {
-            echo "success"
+            script {
+                currentBuild.description = """
+                <a href="https://www.saucedemo.com" target="_blank">
+                Open SauceDemo
+                </a>
+                """
+            }
+            echo "Build SUCCESS"
         }
 
         failure {
-            echo "Build Failed"
+            echo "Build FAILED"
         }
     }
 }
