@@ -31,6 +31,11 @@ pipeline {
                 sh 'mvn exec:java'
             }
         }
+        stage('Open SauceDemo') {
+    steps {
+        bat 'start https://www.saucedemo.com'   
+    }
+}
     }
 
     post {
