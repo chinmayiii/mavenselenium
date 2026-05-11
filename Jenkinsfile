@@ -35,14 +35,7 @@ pipeline {
 
     post {
         success {
-            script {
-                currentBuild.description = """
-                <a href="https://www.saucedemo.com" target="_blank">
-                Open SauceDemo
-                </a>
-                """
-            }
-            echo "Build SUCCESS"
+            echo "Open SauceDemo: https://www.saucedemo.com"
         }
 
         failure {
